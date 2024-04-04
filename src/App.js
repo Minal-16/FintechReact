@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Avatar from "./Avatar/Avatar";
+import Panaroma from "./Panaroma/Panaroma";
+import "./App.css";
+import model from "./Avatar/bluedress.glb";
+import UrlParam from "./UrlParam";
+import Recording from "./Recording";
 
 function App() {
+  const modelPath = model;
+  const [urlParamCompleted, setUrlParamCompleted] = useState(false);
+
+  // Simulate URL param processing completion with useEffect
+  useEffect(() => {
+    // Simulated delay for demonstration purposes
+    if (urlParamCompleted) {
+      console.log("UrlParam Complete its execution");
+    }
+  }, [urlParamCompleted]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      {/* <Panaroma />
+      <div className="avatar-container">
+        <Avatar modelPath={modelPath} />
+      </div>
+      <div className="text-container">
+        <UrlParam onExecute={() => setUrlParamCompleted(true)} />
+        {urlParamCompleted && <Recording />}
+      </div> */}
+      <Recording />
     </div>
   );
 }

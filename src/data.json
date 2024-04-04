@@ -1,0 +1,56 @@
+{
+  "language": [{
+    "english": {
+      "stt_server":"https://tts.indiantts.in/tts?api_key=Grt45rtsd45T332sSw23derAsw2f5sd34i8hsders1&action=play&numeric=currency&lang=hi_female_v1&samplerate=8000&ver=2",
+      "speaker": "en_female",
+      "nlu_model": "english",
+      "language_set":true,
+      "language":"english",
+      "data":[
+       "Welcome to Share India, Hello",
+        "Your customer ID is ",
+        "Your loan Number is",
+        "Your loan amount is ",
+        "your pending amount is ",
+        "Your EMI amount is ",
+        "Due date of your pending EMI is ",
+        "Number of EMI pending is ",
+        "Your current loan status is ",
+        "Your last paid EMI is ",
+        "Your Next EMI date is ",
+        "Your total paid EMI is ",
+        "Your outstanding amount is ",
+        "Preclouserment for your account is ",
+        "Your center manager's number is - ",
+        "The name of your branch manager is - ",
+        "Your branch manager's contact number is - ",
+        "Please tell us your query?"
+        
+    ]},
+    "hindi": {
+      "stt_server":"https://tts.indiantts.in/tts?api_key=Grt45rtsd45T332sSw23derAsw2f5sd34i8hsders1&action=play&numeric=hcurrency&lang=hi_female_v1&samplerate=8000&ver=2",
+      "speaker": "hi_female_v1",
+      "nlu_model": "hindi",
+      "language_set":true,
+      "language":"hindi",
+      "data": [
+        "शेयर इंडिया में आपका स्वागत है, नमस्कार ",
+        "आपकी ग्राहक आईडी है ",
+        "आपका लोन नंबर हैं ",
+        "आपकी ऋण राशि है ",
+        "आपकी  देय बकाया राशि है ",
+        "आपकी ईएमआई राशि है ",
+        "आपकी बकाया ईएमआई की देय तिथि है ",
+        "बकाया ईएमआई की संख्या है ",
+        "आपका करंट लोन स्टेट्स है ",
+        "आपकी अंतिम भुगतान की गई ईएमआई है ",
+        "आपकी अगली ईएमआई तिथि है ",
+        "आपकी कुल भुगतान की गई ईएमआई है ",
+        "आपकी टोटल बकाया राशि है ",
+        "आपके खाते के लिए प्रीक्लॉउज़रमेंट है ",
+        "आपके केंद्र प्रबंधक का नंबर है - ",
+        "आपके शाखा प्रबंधक का नाम है - ",
+        "आपके शाखा प्रबंधक का संपर्क नंबर है - ",
+        "कृपया हमें अपना प्रश्न बताएं? "
+    ]}
+  }]}
