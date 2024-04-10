@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Avatar from "./Avatar/Avatar";
 import Panaroma from "./Panaroma/Panaroma";
 import "./App.css";
@@ -7,28 +7,22 @@ import UrlParam from "./UrlParam";
 import Recording from "./Recording";
 
 function App() {
-  const modelPath = model;
   const [urlParamCompleted, setUrlParamCompleted] = useState(false);
-
-  // Simulate URL param processing completion with useEffect
-  useEffect(() => {
-    // Simulated delay for demonstration purposes
-    if (urlParamCompleted) {
-      console.log("UrlParam Complete its execution");
-    }
-  }, [urlParamCompleted]);
 
   return (
     <div className="app-container">
-      {/* <Panaroma />
+      <Panaroma />
       <div className="avatar-container">
-        <Avatar modelPath={modelPath} />
+        <Avatar modelPath={model} />
       </div>
       <div className="text-container">
-        <UrlParam onExecute={() => setUrlParamCompleted(true)} />
-        {urlParamCompleted && <Recording />}
-      </div> */}
-      <Recording />
+        {!urlParamCompleted ? (
+          <UrlParam onComplete={() => setUrlParamCompleted(true)} />
+        ) : (
+          <Recording />
+        )}
+      </div>
+      {/* <Recording /> */}
     </div>
   );
 }

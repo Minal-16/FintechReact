@@ -16,7 +16,7 @@ function Panaroma() {
       output: "console",
       container: document.querySelector("#panoramaContainer"),
     });
-    viewerInstance.setCameraFov(70);
+    viewerInstance.setCameraFov(85);
     viewerInstance.add(panorama);
   }, []);
 

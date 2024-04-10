@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 function AudioPlayer({ text, numeric, lang, onEnd }) {
   const [audioSrc, setAudioSrc] = useState("");
+  const [audioElement, setAudioElement] = useState(null);
+  const [restart, setRestart] = useState(false); // New state for restart action
 
   useEffect(() => {
     const api_key = "Grt45rtsd45T332sSw23derAsw2f5sd34i8hsders1";
@@ -17,16 +19,17 @@ function AudioPlayer({ text, numeric, lang, onEnd }) {
 
   useEffect(() => {
     if (audioSrc) {
-      const audioElement = new Audio(audioSrc);
-      audioElement.addEventListener("ended", handleAudioEnd);
-      audioElement.play().catch((error) => {
+      const audio = new Audio(audioSrc);
+      audio.addEventListener("ended", handleAudioEnd);
+      setAudioElement(audio);
+      audio.play().catch((error) => {
         console.error("Error playing audio:", error);
       });
       return () => {
-        audioElement.removeEventListener("ended", handleAudioEnd);
+        audio.removeEventListener("ended", handleAudioEnd);
       };
     }
-  }, [audioSrc]);
+  }, [audioSrc, restart]); // Listen for changes in restart state
 
   const handleAudioEnd = () => {
     if (typeof onEnd === "function") {
@@ -34,7 +37,35 @@ function AudioPlayer({ text, numeric, lang, onEnd }) {
     }
   };
 
-  return null;
+  const handlePause = () => {
+    if (audioElement) {
+      audioElement.pause();
+    }
+  };
+
+  const handleContinue = () => {
+    if (audioElement) {
+      audioElement.play();
+    }
+  };
+
+  const handleRestart = () => {
+    if (audioElement) {
+      const audio = new Audio(audioSrc);
+      audio.addEventListener("ended", handleAudioEnd);
+      setAudioElement(audio); // Reset audio to the beginning
+      audioElement.play(); // Start playing again
+      setRestart(!restart); // Toggle restart state
+    }
+  };
+
+  return (
+    <div>
+      <button onClick={handlePause}>Pause</button>
+      <button onClick={handleContinue}>Continue</button>
+      <button onClick={handleRestart}>Restart</button> {/* Restart button */}
+    </div>
+  );
 }
 
 export default AudioPlayer;

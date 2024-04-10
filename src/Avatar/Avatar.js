@@ -20,7 +20,7 @@ const Avatar = ({ modelPath }) => {
       );
 
       // Set camera position to view the model properly
-      camera.position.set(0, 15, 18);
+      camera.position.set(5, 8, 8);
 
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -32,7 +32,7 @@ const Avatar = ({ modelPath }) => {
       mountRef.current.appendChild(renderer.domElement);
 
       // Ambient light
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 2);
       scene.add(ambientLight);
 
       // Hemisphere light
@@ -45,15 +45,15 @@ const Avatar = ({ modelPath }) => {
       scene.add(directionalLight);
 
       // Point light
-      const pointLight = new THREE.PointLight(0xffffff, 0.5);
+      const pointLight = new THREE.PointLight(0xffffff, 5);
       pointLight.position.set(0, 10, 0);
       scene.add(pointLight);
 
       // Spotlight
-      const spotlight = new THREE.SpotLight(0xffff00, 1); // Yellow light
-      spotlight.position.set(5, 5, 5);
-      spotlight.castShadow = true;
-      scene.add(spotlight);
+      // const spotlight = new THREE.SpotLight(0xffffff, 1); // Yellow light
+      // spotlight.position.set(5, 5, 5);
+      // spotlight.castShadow = true;
+      // scene.add(spotlight);
 
       const loader = new GLTFLoader();
       loader.load(
@@ -63,7 +63,7 @@ const Avatar = ({ modelPath }) => {
 
           // Apply rotation and scale adjustments
           gltfScene.rotation.y = 0.2;
-          gltfScene.scale.set(25, 25, 10);
+          gltfScene.scale.set(15, 15, 10);
 
           // Set model position to center it in the scene
           gltfScene.position.set(-5, -10, -10);
